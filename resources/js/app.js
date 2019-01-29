@@ -9,6 +9,45 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+/*use Vue Route*/
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+import router from './routes';
+
+/*Vue ProgressBar*/
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+  color: 'rgb(143, 255, 199)',
+  failedColor: 'red',
+  height: '2px'
+})
+
+/*VForm*/
+import { Form, HasError, AlertError } from 'vform'
+window.Form = Form;
+// Validate
+Vue.component(HasError.name, HasError)
+Vue.component(AlertError.name, AlertError) 
+
+/*Filter*/
+import './filter.js';
+
+/*Use vue-sweetalert2 */
+import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(VueSweetalert2);
+
+/*Use Component local for hook*/
+window.Fire = new Vue();
+
+/*Use pagination*/
+Vue.component('pagination', require('laravel-vue-pagination'));
+
+/* use multiple select */
+import Multiselect from 'vue-multiselect'
+/*register globally*/
+Vue.component('multiselect', Multiselect)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,5 +68,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router,
+    data: {
+      updateProfile: 0,
+      username: 'username',
+    }
 });

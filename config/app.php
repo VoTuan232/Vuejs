@@ -174,6 +174,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        //imgae
+        Intervention\Image\ImageServiceProvider::class,
+        //debug bar
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -223,6 +227,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //image
+        'Image' => Intervention\Image\Facades\Image::class,
+        //debug bar
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
